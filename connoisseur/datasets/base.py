@@ -572,7 +572,7 @@ class DataSet:
                         except MemoryError:
                             print('failed')
 
-                    print('%i patches extracted from %i samples '
-                          % (all_patches, label))
+                    print('%i patches extracted from %i samples of %s'
+                          % (all_patches, len(samples), label))
         print('patches extraction completed.')
         return self
