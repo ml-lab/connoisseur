@@ -541,7 +541,7 @@ class DataSet:
                 all_patches = 0
 
                 if mode == 'balanced':
-                    label_weights = 1 / np.asarray([len(s) for s in label_samples])
+                    label_weights = 1 / np.asarray([len(s) for s in label_samples], 'float')
                     label_weights /= label_weights.max()
                     _mode = 'random'
                 else:
