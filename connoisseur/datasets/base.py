@@ -538,7 +538,6 @@ class DataSet:
                 labels = self.classes or os.listdir(os.path.join(data_path, phase))
                 label_paths = [os.path.join(data_path, phase, label) for label in labels]
                 label_samples = [os.listdir(p) for p in label_paths]
-                all_patches = 0
 
                 if mode == 'balanced':
                     label_weights = 1 / np.asarray([len(s) for s in label_samples], 'float')
@@ -549,6 +548,8 @@ class DataSet:
                     _mode = mode
 
                 for label, input_dir, samples, weight in zip(labels, label_paths, label_samples, label_weights):
+                    all_patches = 0
+
                     output_dir = os.path.join(directory, phase, label)
                     os.makedirs(output_dir, exist_ok=True)
 
