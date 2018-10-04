@@ -541,7 +541,7 @@ class DataSet:
 
                 if mode == 'balanced':
                     label_weights = np.asarray([len(s) for s in label_samples], 'float')
-                    label_weights = 1.0 / np.max(label_weights, 1)
+                    label_weights = 1.0 / np.maximum(label_weights, 1)
                     label_weights /= label_weights.max()
                 else:
                     label_weights = np.ones(len(label_samples))
